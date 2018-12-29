@@ -11,6 +11,10 @@ function ES5Enum(options, enumValues){
     selectedValue = 0;
     enumVals = arrayToObject(enumValues);
     retEnumVals = flipObj(enumVals);
+    /**
+     * Sets the value of the enum. [variable].EnumValueSelect.[value] should be used to ensure that you are selecting a valid selection.
+     * @param {number} value The value of the enum that you want to select.
+     */
     this.setValue = function(value){
       if (retEnumVals.hasOwnProperty(value.toString())) {
         selectedValue = value;
@@ -18,6 +22,11 @@ function ES5Enum(options, enumValues){
         console.error('Value not found in Enum');
       }
     };
+    /**
+     * Sets all new enum values to this instance of enum. Note that this is likely a bad idea and is not really recommended, and optiions will prevent this function from running unless you set allowChanges to true. 
+     * @param {string[]} enumValues Array of string in the order that you want them to be numbered. Note default should ALWAYS go first.
+     * @throws errors when attempted when allowed change is not true, as well as if improperly formatted values are passed.
+     */
     this.setNewEnumValues = function(enumValues){
       if (settings.allowChanges) {
         selectedValue = 0;
@@ -28,13 +37,24 @@ function ES5Enum(options, enumValues){
         console.error('Changes to Enum are not allowed');
       }
     }
-    this.EnumValueSelect = enumVals;
+    /**
+     * This is how you should recover the string value of the enum.
+     * @returns String of the selected enum value.
+     */
     this.toString = function(){
       return retEnumVals[selectedValue.toString()];
     }
+    /**
+     * This is how you should recover the value of the enum.
+     * @returns Number representing the selected value of the enum.
+     */
     this.toNumber = function() {
       return selectedValue;
     }
+    /**
+     * Use this to properly select the value desired for the enum.
+     */
+    this.EnumValueSelect = enumVals;
 }
 
 var isArray = function(a) {
