@@ -8,7 +8,10 @@ function ES5Enum(options, enumValues){
       onChangeThrowError: true
     },
     settings = {};
-
+    objJoin(settings, defaults, options, true);
+    selectedValue = 0;
+    enumVals = arrayToObject(enumValues);
+    retEnumVals = flipObj(enumVals);
 }
 
 var isArray = function(a) {
