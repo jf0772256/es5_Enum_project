@@ -18,6 +18,13 @@ function ES5Enum(options, enumValues){
     this.getValueString = function(){
       return retEnumVals[selectedValue.toString()];
     };
+    this.setValue = function(value){
+      if (retEnumVals.hasOwnProperty(value.toString())) {
+        selectedValue = value;
+      } else {
+        console.error('Value not found in Enum');
+      }
+    };
     this.EnumValueSelect = enumVals;
 }
 
