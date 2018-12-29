@@ -19,3 +19,5 @@ var isObject = function(a) {
 var isNumber = function(a) {
   return (!!a) && (a.constructor === Number);
 }
+
+}
