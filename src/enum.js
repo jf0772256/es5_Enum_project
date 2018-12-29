@@ -36,6 +36,12 @@ function ES5Enum(options, enumValues){
       }
     }
     this.EnumValueSelect = enumVals;
+    this.toString = function(){
+      return retEnumVals[selectedValue.toString()];
+    }
+    this.toNumber = function() {
+      return selectedValue;
+    }
 }
 
 var isArray = function(a) {
