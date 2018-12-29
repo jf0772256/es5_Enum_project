@@ -19,28 +19,28 @@ var isNumber = function(a) {
   return (!!a) && (a.constructor === Number);
 }
 
-var objJoin = function (defaultOptions, userSupplied, ignoreExtraProperties){
+var objJoin = function (output, defaultOptions, userSupplied, ignoreExtraProperties){
   var isObj1 = isObject(defaultOptions),  
     isObj2 = isObject(userSupplied);
-  var joined = {}, 
-    keys = (isObj1) ? Object.keys(defaultOptions) : null, 
+  var keys = (isObj1) ? Object.keys(defaultOptions) : null, 
     uKeys = (isObj2) ? Object.keys(userSupplied) : null;
   ignoreExtraProperties = (ignoreExtraProperties === undefined || ignoreExtraProperties === null) ? false : ignoreExtraProperties;
   if (ukeys !== null && keys !== null) {
     for (var index = 0; index < keys.length; index++) {
       var e = keys[index];
-      joined[e] = defaultOptions[e];
+      output[e] = defaultOptions[e];
     }
     for (var index = 0; index < uKeys.length; index++) {
       var e = uKeys[index];
       if (ignoreExtraProperties) {
-        if (joined.hasOwnProperty(e)) {
-          joined[e] = userSupplied[e];
+        if (output.hasOwnProperty(e)) {
+          output[e] = userSupplied[e];
         }
       } else {
-        joined[e] = userSupplied[e];
+        output[e] = userSupplied[e];
       }
     }
+    return output;
   } else {
     throw new Error('Type Error: One or both object parameters were not objects! We were unable to proceed with the operation.');
   }
