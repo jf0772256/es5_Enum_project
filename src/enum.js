@@ -25,6 +25,16 @@ function ES5Enum(options, enumValues){
         console.error('Value not found in Enum');
       }
     };
+    this.setNewEnumValues = function(enumValues){
+      if (settings.allowChanges) {
+        selectedValue = 0;
+        enumVals = arrayToObject(enumValues);
+        retEnumVals = flipObj(enumVals);
+        this.EnumValueSelect = enumVals;
+      } else {
+        console.error('Changes to Enum are not allowed');
+      }
+    }
     this.EnumValueSelect = enumVals;
 }
 
