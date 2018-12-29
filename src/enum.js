@@ -58,3 +58,22 @@ var objJoin = function (output, defaultOptions, userSupplied, ignoreExtraPropert
     throw new Error('Type Error: One or both object parameters were not objects! We were unable to proceed with the operation.');
   }
 }
+
+/**
+ * Function that takes an ordered array and converts it into a key=>value pair. and returns that.
+ * @param {string[]} inputArray Values you want for your enum. Note though that you will need to have the default value be set at the first element. Convention follows that you use uppercase for the strings.
+ * @returns {{}} Returns an object that can be set to a variable.
+ */
+var arrayToObject = function(inputArray){
+  if (inputArray === undefined || !isArray(inputArray)) {
+    throw new Error('Missing or invalid argument. Must be an array');
+  } else if (inputArray.length == 0) {
+    throw new Error('Cannot convert empty values into something... please provide the needed values and we will do the rest.');
+  }
+  var obj = {};
+  for (var i = 0; i < inputArray.length; i++) {
+    var e = inputArray[i];
+    obj[e] = i;
+  }
+  return obj;
+}
