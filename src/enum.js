@@ -77,3 +77,20 @@ var arrayToObject = function(inputArray){
   }
   return obj;
 }
+
+/**
+ * Function that takes an object and returns the object with teh key=>value pairs swapped for eachother
+ * @param {{}} inputObj Object that will be flipped.
+ * @returns {{}} The new flipped object.
+ */
+var flipObj = function(inputObj){
+  var ik = Object.keys(inputObj),
+    iv = Object.values(inputObj),
+    oo = {};
+  for (var i = 0; i < ik.length; i++) {
+    var e = ik[i],
+      e1 = iv[i];
+    oo[e1.toString()] = e;
+  }
+  return oo
+}
