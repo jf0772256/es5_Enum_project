@@ -4,20 +4,13 @@ function ES5Enum(options, enumValues){
     retEnumVals,
     selectedValue,
     defaults = {
-      allowChanges: false,
-      onChangeThrowError: true
+      allowChanges: false
     },
     settings = {};
     objJoin(settings, defaults, options, true);
     selectedValue = 0;
     enumVals = arrayToObject(enumValues);
     retEnumVals = flipObj(enumVals);
-    this.getValue = function(){
-      return selectedValue;
-    };
-    this.getValueString = function(){
-      return retEnumVals[selectedValue.toString()];
-    };
     this.setValue = function(value){
       if (retEnumVals.hasOwnProperty(value.toString())) {
         selectedValue = value;
