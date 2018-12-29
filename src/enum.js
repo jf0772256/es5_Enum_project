@@ -25,7 +25,7 @@ var objJoin = function (output, defaultOptions, userSupplied, ignoreExtraPropert
   var keys = (isObj1) ? Object.keys(defaultOptions) : null, 
     uKeys = (isObj2) ? Object.keys(userSupplied) : null;
   ignoreExtraProperties = (ignoreExtraProperties === undefined || ignoreExtraProperties === null) ? false : ignoreExtraProperties;
-  if (ukeys !== null && keys !== null) {
+  if (uKeys !== null && keys !== null) {
     for (var index = 0; index < keys.length; index++) {
       var e = keys[index];
       output[e] = defaultOptions[e];
