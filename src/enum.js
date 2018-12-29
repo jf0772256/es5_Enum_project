@@ -1,6 +1,13 @@
 
-function ES5Enum(options){
-  //
+function ES5Enum(options, enumValues){
+  var enumVals,
+    retEnumVals,
+    defaults= {
+      checkForChanges: false,
+
+    },
+    settings;
+
 }
 
 var isArray = function(a) {
