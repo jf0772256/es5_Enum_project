@@ -5,7 +5,7 @@ function ES5Enum(options, enumValues){
     defaults= {
       checkForChanges: false,
     },
-    settings;
+    settings = {};
 
 }
 
