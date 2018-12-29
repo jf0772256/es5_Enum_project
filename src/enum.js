@@ -29,27 +29,31 @@ var isNumber = function(a) {
  * @param {boolean} ignoreExtraProperties Optional. This flag defaults to false if not set. If true, will ignore properties within the user supplied options if they are not also existing in the programmer supplied options.
  */
 var objJoin = function (output, defaultOptions, userSupplied, ignoreExtraProperties){
-  var isObj1 = isObject(defaultOptions),  
-    isObj2 = isObject(userSupplied);
-  var keys = (isObj1) ? Object.keys(defaultOptions) : null, 
-    uKeys = (isObj2) ? Object.keys(userSupplied) : null;
+  var keys = (isObject(defaultOptions)) ? Object.keys(defaultOptions) : null, 
+    uKeys = (isObject(userSupplied)) ? Object.keys(userSupplied) : null;
   ignoreExtraProperties = (ignoreExtraProperties === undefined || ignoreExtraProperties === null) ? false : ignoreExtraProperties;
+  // only process if defaultOptions and userSupplied are objects with keys!
   if (uKeys !== null && keys !== null) {
+    // populate the output object with defaultObjects values and keys
     for (var index = 0; index < keys.length; index++) {
       var e = keys[index];
       output[e] = defaultOptions[e];
     }
+    // now implement userSupplied values to the output to override the default values
     for (var index = 0; index < uKeys.length; index++) {
       var e = uKeys[index];
+      // if you set the argument4 value to true this is where that starts to happen
       if (ignoreExtraProperties) {
         if (output.hasOwnProperty(e)) {
           output[e] = userSupplied[e];
         }
       } else {
+        // if not then you will have all values that the user put in... 
         output[e] = userSupplied[e];
       }
     }
   } else {
+    // options types wee not objects!
     throw new Error('Type Error: One or both object parameters were not objects! We were unable to proceed with the operation.');
   }
 }
