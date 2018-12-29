@@ -12,6 +12,7 @@ function ES5Enum(options, enumValues){
     selectedValue = 0;
     enumVals = arrayToObject(enumValues);
     retEnumVals = flipObj(enumVals);
+    this.EnumValueSelect = enumVals;
 }
 
 var isArray = function(a) {
