@@ -2,7 +2,8 @@
 function ES5Enum(options, enumValues){
   var enumVals,
     retEnumVals,
-    defaults= {
+    selectedValue,
+    defaults = {
       checkForChanges: false,
     },
     settings = {};
