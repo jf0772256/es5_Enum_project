@@ -4,7 +4,8 @@ function ES5Enum(options, enumValues){
     retEnumVals,
     selectedValue,
     defaults = {
-      checkForChanges: false,
+      allowChanges: false,
+      onChangeThrowError: true
     },
     settings = {};
 
