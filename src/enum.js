@@ -15,6 +15,9 @@ function ES5Enum(options, enumValues){
     this.getValue = function(){
       return selectedValue;
     };
+    this.getValueString = function(){
+      return retEnumVals[selectedValue.toString()];
+    };
     this.EnumValueSelect = enumVals;
 }
 
